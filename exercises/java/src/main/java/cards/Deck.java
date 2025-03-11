@@ -22,7 +22,7 @@ public class Deck {
         int cardNumber = 0;
         for (PlayingCard card : deck) {
             String faceValueName;
-            switch (card.faceValue){
+            switch (card.getFaceValue()){
                 case 0: faceValueName = "ace"; break;
                 case 1:
                 case 2:
@@ -32,20 +32,20 @@ public class Deck {
                 case 6:
                 case 7:
                 case 8:
-                case 9: faceValueName = Integer.toString(card.faceValue+1); break;
+                case 9: faceValueName = Integer.toString(card.getFaceValue()+1); break;
                 case 10: faceValueName = "jack"; break;
                 case 11: faceValueName = "queen"; break;
                 case 12: faceValueName = "king"; break;
-                default: throw new IllegalArgumentException("Something went wrong " + card.faceValue + "is not a valid faceValue!");
+                default: throw new IllegalArgumentException("Something went wrong " + card.getFaceValue() + "is not a valid faceValue!");
             }
 
             String suitName;
-            switch (card.suit){
+            switch (card.getSuit()){
                 case 0: suitName = "clubs"; break;
                 case 1: suitName = "diamonds"; break;
                 case 2: suitName = "hearts"; break;
                 case 3: suitName = "spades"; break;
-                default: throw new IllegalArgumentException("Something went wrong " + card.suit + "is not a valid suitName!");
+                default: throw new IllegalArgumentException("Something went wrong " + card.getSuit() + "is not a valid suitName!");
             }
 
             result[cardNumber] = faceValueName + " of " + suitName;
