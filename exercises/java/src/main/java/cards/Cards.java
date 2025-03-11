@@ -12,7 +12,7 @@ public class Cards {
 
     public String[] getCards() {
         String[] result = new String[52];
-        PlayingCard[] deck = new PlayingCard[52];
+       PlayingCardDeck deck = new PlayingCardDeck();
 
         for (int suit = 0; suit < 4; suit++) {
             for (int faceValue = 0; faceValue < 13; faceValue++) {
@@ -27,13 +27,13 @@ public class Cards {
                 }
 
                 PlayingCardSuit playingCardSuit = new PlayingCardSuit(suitName);
-                deck[suit*13+faceValue] = new PlayingCard(playingCardSuit,faceValue);
+                deck.getCards()[suit*13+faceValue] = new PlayingCard(playingCardSuit,faceValue);
 
             }
         }
 
         int cardNumber = 0;
-        for (PlayingCard card : deck) {
+        for (PlayingCard card : deck.getCards()) {
             String faceValueName;
             switch (card.getFaceValue()){
                 case 0: faceValueName = "ace"; break;
