@@ -3,27 +3,19 @@ package cards;
 public class PlayingCard {
 
 
-        private int suit;
+        private PlayingCardSuit suit;
         private int faceValue;
 
-        public PlayingCard(int suit, int faceValue) {
+        PlayingCard(PlayingCardSuit suit, int faceValue) {
                 this.suit = suit;
                 this.faceValue = faceValue;
-        }
-
-        public void setFaceValue(int faceValue) {
-                this.faceValue = faceValue;
-        }
-
-        public void setSuit(int suit) {
-                this.suit = suit;
         }
 
         public int getFaceValue() {
                 return faceValue;
         }
 
-        public int getSuit() {
+        public PlayingCardSuit getPlayingCardSuit() {
                 return suit;
         }
 }

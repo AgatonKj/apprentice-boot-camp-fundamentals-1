@@ -1,5 +1,6 @@
 package cards;
 
+
 public class Deck {
     public static void main(String[] args) {
         Deck cards = new Deck();
@@ -15,7 +16,19 @@ public class Deck {
 
         for (int suit = 0; suit < 4; suit++) {
             for (int faceValue = 0; faceValue < 13; faceValue++) {
-                deck[suit*13+faceValue] = new PlayingCard(suit,faceValue);
+
+                String suitName;
+                switch (suit){
+                    case 0: suitName = "clubs"; break;
+                    case 1: suitName = "diamonds"; break;
+                    case 2: suitName = "hearts"; break;
+                    case 3: suitName = "spades"; break;
+                    default: throw new IllegalArgumentException("Something went wrong " + suit + "is not a valid suitName!");
+                }
+
+                PlayingCardSuit playingCardSuit = new PlayingCardSuit(suitName);
+                deck[suit*13+faceValue] = new PlayingCard(playingCardSuit,faceValue);
+
             }
         }
 
@@ -39,16 +52,9 @@ public class Deck {
                 default: throw new IllegalArgumentException("Something went wrong " + card.getFaceValue() + "is not a valid faceValue!");
             }
 
-            String suitName;
-            switch (card.getSuit()){
-                case 0: suitName = "clubs"; break;
-                case 1: suitName = "diamonds"; break;
-                case 2: suitName = "hearts"; break;
-                case 3: suitName = "spades"; break;
-                default: throw new IllegalArgumentException("Something went wrong " + card.getSuit() + "is not a valid suitName!");
-            }
 
-            result[cardNumber] = faceValueName + " of " + suitName;
+
+            result[cardNumber] = faceValueName + " of " + card.getPlayingCardSuit().getSuit();
             cardNumber++;
         }
 
