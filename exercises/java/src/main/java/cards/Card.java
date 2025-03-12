@@ -1,5 +1,5 @@
 package cards;
 
 public interface Card {
-    public boolean snap( Card otherCard );
+    boolean snap( Card otherCard );
 }
