@@ -3,10 +3,11 @@ package cards;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayingCardDeck implements Deck{
-    private List<PlayingCard> cards = new ArrayList<>();
+public class PlayingCardDeck extends Deck{
+
 
     public PlayingCardDeck() {
+        cards = new ArrayList<>();
         for (int suit = 0; suit < 4; suit++) {
             for (int faceValue = 0; faceValue < 13; faceValue++) {
 
@@ -35,23 +36,7 @@ public class PlayingCardDeck implements Deck{
         }
     }
 
-    @Override
-    public void shuffle() {
 
-    }
-    public String[] getCards() {
-        String[] result = new String[cards.size()];
-        for (int i = 0; i < cards.size(); i++) {
-            PlayingCard card = cards.get(i);
-            result[i] = card.toString();
-        }
-        return result;
-    }
-
-    @Override
-    public PlayingCard deal() {
-        return cards.remove(0);
-    }
 }
 
 

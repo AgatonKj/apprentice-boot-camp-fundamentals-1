@@ -1,6 +1,6 @@
 package cards;
 
-public class PlayingCard implements Card {
+public class PlayingCard extends Card {
 
 
         private PlayingCardSuit suit;
@@ -31,10 +31,6 @@ public class PlayingCard implements Card {
                                 default: throw new IllegalArgumentException("Something went wrong " + faceValue + "is not a valid faceValue!");
                         }
                 return faceValueName + " of " + suit;
-        }
-
-        public int getFaceValue() {
-                return faceValue;
         }
 
         public PlayingCardSuit getPlayingCardSuit() {
