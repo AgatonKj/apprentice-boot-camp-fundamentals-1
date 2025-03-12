@@ -8,7 +8,8 @@ public class PlayingCardSuit {
         this.suit = suit;
     }
 
-    public String getSuit(){
-            return suit;
+    @Override
+    public String toString() {
+        return  suit;
     }
 }
